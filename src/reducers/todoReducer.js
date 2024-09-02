@@ -1,8 +1,10 @@
-import { getTodos, saveTodos } from '@/utils/storage'
-
+import { saveTodos } from '@/utils/storage'
 
 export default function todoReducer(state, action) {
   switch (action.type) {
+    case 'SET_TODOS':
+      return action.payload
+
     case 'ADD_TODO':
       const newTodos = [...state, action.payload]
       saveTodos(newTodos)
